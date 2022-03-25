@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <title>Sawyer Talks Login</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+         <!-- Cool Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+        <!-- Our stylesheet -->
+        <link rel="stylesheet" href="../login/index.css">
+    </head>
+    <body>
+        
+                <div class="background">
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                </div>
+                <div class="container">
+                <form class="register">
+                    
+                    <h2 class="form_header"> Sawyer Talks | Register </h2>
+                    <label for="name">Name</label>
+                    <input type="text" id="full_name" placeholder="Full name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password">
+                    <label for="text">Song</label>
+                    <input type="text" id="favourite_song" placeholder="The Best Song Ever">
+                    <label for="text">Ques?</label>
+                    <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? ( Yes | No )">
+            
+                        <button type="button" onclick="window.location.href='/login/login.html'">Already Have an Account? Log in Now.</button>
+                        <button type="button" onclick="register()">Register</button>
+                    
+                    
+                </form>
+                </div>
+        
+    </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <!-- Our script must be loaded after firebase references -->
+    <script src="index.js"></script>
+
+</html>

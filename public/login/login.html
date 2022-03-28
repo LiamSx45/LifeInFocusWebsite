@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="../login/index.css">
     </head>
     <body>
-        
+            <div id="login_div">
                 <div class="background">
                     <div class="shape"></div>
                     <div class="shape"></div>
                 </div>
-                <div class="container">
+                <div class="container" >
                 <form>
                     
                         <h2 class="form_header"> Sawyer Talks | Login </h2>
@@ -35,8 +35,19 @@
                         <button type="button" onclick="window.location.href='/login/register.html'">New? Register Today!</button>
                     
                     
-                </form>
+                    </form>
                 </div>
+            </div>
+            
+            <div id="user_div">
+                <div class="container">
+                    <h2>Welcome!</h2>
+                    <p id="user_para">Welcome to Life in Focud. You're currently logged in.</p>
+                    <button type="button" onclick="window.location.href='../index.html'">Home</button>
+                    <button type="button" onclick="logout()">Logout</button>
+                    
+                </div>
+            </div>
         
     </body>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

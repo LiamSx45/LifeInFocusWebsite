@@ -1,7 +1,7 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyDem8bmXb7CkyTAXVlj9YgU_KI8q8dOLCM",
-    authDomain: "life-in-focus-84b0b.firebaseapp.com",
+    authDomain: "auth.lifeinfocuspod.com",
     databaseURL: "https://life-in-focus-84b0b-default-rtdb.firebaseio.com",
     projectId: "life-in-focus-84b0b",
     storageBucket: "life-in-focus-84b0b.appspot.com",
@@ -11,51 +11,29 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  
   // Initialize variables
   const auth = firebase.auth()
   const database = firebase.database()
 
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-  
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-  
-      var user = firebase.auth().currentUser;
-  
-      if(user != null){
-  
-        var email_id = user.email;
-        document.getElementById("user_para").innerHTML = "Welcome to Life in Focus: " + email_id;
-  
-      }
-  
-    } else {
-      // No user is signed in.
-  
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
-  
-    }
-  });
   // Set up our register function
   function register () {
     // Get all our input fields
+    First_Name = document.getElementById('fname').value
+    Last_Name = document.getElementById('lname').value
+    Username = document.getElementById('username').value
     email = document.getElementById('email').value
     password = document.getElementById('password').value
-    full_name = document.getElementById('full_name').value
-    favourite_song = document.getElementById('favourite_song').value
-    milk_before_cereal = document.getElementById('milk_before_cereal').value
+    PhoneNum = document.getElementById('phonenum').value
   
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
-      alert('Email or Password is Outta Line!!')
+      alert('Please enter a valid email and password.')
       return
       // Don't continue running the code
     }
-    if (validate_field(full_name) == false || validate_field(favourite_song) == false || validate_field(milk_before_cereal) == false) {
-      alert('One or More Extra Fields is Outta Line!!')
+    if (validate_field(Last_Name) == false || validate_field(First_Name) == false || validate_field(Username) == false || validate_field(PhoneNum) == false) {
+      alert('Please fill out all fields.')
       return
     }
    
@@ -71,9 +49,10 @@ var firebaseConfig = {
       // Create User data
       var user_data = {
         email : email,
-        full_name : full_name,
-        favourite_song : favourite_song,
-        milk_before_cereal : milk_before_cereal,
+        First_Name : First_Name,
+        Last_Name : Last_Name,
+        Username : Username,
+        PhoneNum : PhoneNum,
         last_login : Date.now()
       }
   
@@ -81,7 +60,8 @@ var firebaseConfig = {
       database_ref.child('users/' + user.uid).set(user_data)
   
       // DOne
-      alert('User Created!!')
+      alert('Registration Complete!')
+      location.href = '../index.html';
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
@@ -100,7 +80,7 @@ var firebaseConfig = {
   
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
-      alert('Email or Password is Outta Line!!')
+      alert('Incorrect email/password.')
       return
       // Don't continue running the code
     }
@@ -122,7 +102,10 @@ var firebaseConfig = {
       database_ref.child('users/' + user.uid).update(user_data)
   
       // DOne
-      alert('User Logged In!!')
+      alert('Logged In!')
+      window.location.href="../index.html";
+      
+
   
     })
     .catch(function(error) {
@@ -168,8 +151,4 @@ var firebaseConfig = {
     } else {
       return true
     }
-  }
-
-  function logout(){
-    firebase.auth().signOut();
   }
